@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import foodsJson from "./foods.json";
+import FoodBox from "./components/FoodBox";
 
 function App() {
 
@@ -12,6 +13,13 @@ function App() {
   return (
     <div className="App">
       <h1>LAB | React IronNutrition</h1>
+      <FoodBox food={{
+        name: "Orange",
+        calories: 85,
+        image: "https://cdn2.thecatapi.com/images/MTUxMTkxNg.jpg",
+        servings: 1
+      }}
+      />
     </div>
   );
 }
