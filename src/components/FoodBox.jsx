@@ -1,5 +1,7 @@
 // Your code here
-export default function FoodBox({ food }) {
+
+export default function FoodBox({ food, onDelete }) {
+
     return (<div>
         <p>{food.name}</p>
 
@@ -12,6 +14,6 @@ export default function FoodBox({ food }) {
             <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
 
-        <button>Delete</button>
+        <button onClick={()=>onDelete(food.id)}>Delete</button>
     </div>);
 }
