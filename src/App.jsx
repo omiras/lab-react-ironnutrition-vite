@@ -13,13 +13,9 @@ function App() {
   return (
     <div className="App">
       <h1>LAB | React IronNutrition</h1>
-      <FoodBox food={{
-        name: "Orange",
-        calories: 85,
-        image: "https://cdn2.thecatapi.com/images/MTUxMTkxNg.jpg",
-        servings: 1
-      }}
-      />
+      {/** Iterate over the foods array and render a <FoodBox /> component for each individual food item. */}
+      {foods.map(f => <FoodBox key={f.id} food={f} />)}
+
     </div>
   );
 }
