@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { Divider, Input, Button } from "antd";
 
 
 // Your code here
@@ -28,14 +29,14 @@ export default function AddFoodForm({ onCreateFood }) {
     return <div>
         <form className="form" onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
-            <input id="name" type="text" name="name" maxLength={50} value={name} onChange={(e) => setName(e.target.value)} required></input>
+            <Input id="name" type="text" name="name" maxLength={50} value={name} onChange={(e) => setName(e.target.value)} required></Input>
             <label htmlFor="image">Image</label>
-            <input id="image" name="image" type="url" required value={image} onChange={(e) => setImage(e.target.value)}></input>
+            <Input id="image" name="image" type="url" required value={image} onChange={(e) => setImage(e.target.value)}></Input>
             <label htmlFor="calories">Calories</label>
-            <input id="calories" name="calories" type="number" min={0} max={10000} value={calories} onChange={(e) => setCalories(e.target.value)} required />
+            <Input id="calories" name="calories" type="number" min={0} max={10000} value={calories} onChange={(e) => setCalories(e.target.value)} required />
             <label htmlFor="servings">Servings</label>
-            <input id="servings" name="servings" type="number" min={1} max={1000} value={servings} onChange={(e) => setServings(e.target.value)} required></input>
-            <button>Create</button>
+            <Input id="servings" name="servings" type="number" min={1} max={1000} value={servings} onChange={(e) => setServings(e.target.value)} required></Input>
+            <Button>Create</Button>
         </form>
 
     </div>
