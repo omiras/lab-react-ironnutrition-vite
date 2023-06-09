@@ -32,16 +32,24 @@ export default function FoodList() {
         // Cada vez que se ejecuta esta función, es que ha cambiado el valor del input search
 
         // Utiliza adecuadamente el método filter para actualizar el array de foods que contengan la subcadena de texto de e.target.value
-        console.log(e.target.value);
+
+        // NOTA: Se puede hacer también con el típico includes...
+        const keywords = e.target.value;
+        setFoods(foodsJson.filter(f => new RegExp(keywords, 'i').test(f.name)))
     }
 
+
+
     return <>
+
+
         <AddFoodForm onCreateFood={handleCreateFood} />
         {/** Iterate over the foods array and render a <FoodBox /> component for each individual food item. */}
         <Search onSearchChange={handleFilter} />
         <Row style={{
             justifyContent: "center"
         }}>
+            {foods.length == 0 && <h2>No food match search criteria...</h2>}
             {foods.map(f => <FoodBox key={f.id} food={f} onDelete={handleDelete} />)}
         </Row>
     </>
