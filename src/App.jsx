@@ -3,6 +3,7 @@ import "./App.css";
 
 import foodsJson from "./foods.json";
 import FoodBox from "./components/FoodBox";
+import AddFoodForm from "./components/AddFoodForm";
 
 function App() {
 
@@ -19,10 +20,16 @@ function App() {
     setFoods(filteredFoods)
   }
 
+  const handleCreateFood = (createdFood) => {
+    console.log('Nueva comida:', createdFood);
+    // actualizar el array de foods con la nueva comida (actualizar un array con un nuevo objeto)
+    setFoods([...foods, createdFood]);
+  }
 
   return (
     <div className="App">
       <h1>LAB | React IronNutrition</h1>
+      <AddFoodForm onCreateFood={handleCreateFood} />
       {/** Iterate over the foods array and render a <FoodBox /> component for each individual food item. */}
       {foods.map(f => <FoodBox key={f.id} food={f} onDelete={handleDelete} />)}
 
