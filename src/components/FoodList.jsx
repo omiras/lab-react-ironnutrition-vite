@@ -18,10 +18,11 @@ export default function FoodList() {
         setFoods(filteredFoods)
     }
 
-    const handleCreateFood = (createdFood) => {
-        console.log('Nueva comida:', createdFood);
+    // creo una función y mi hijo me tiene que pasar un objeto con la nueva comida
+    const handleCreateFood = (createdFoodFromChild) => {
+        console.log('Nueva comida:', createdFoodFromChild);
         // actualizar el array de foods con la nueva comida (actualizar un array con un nuevo objeto)
-        setFoods([createdFood, ...foods]);
+        setFoods([createdFoodFromChild, ...foods]);
     }
     return <>
         <AddFoodForm onCreateFood={handleCreateFood} />

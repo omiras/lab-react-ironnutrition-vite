@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 // Your code here
 export default function AddFoodForm({ onCreateFood }) {
     const [name, setName] = useState('');
-    const [image, setImage] = useState('')
-    const [calories, setCalories] = useState('')
+    const [image, setImage] = useState('');
+    const [calories, setCalories] = useState('');
     const [servings, setServings] = useState(1);
 
 
@@ -21,7 +21,7 @@ export default function AddFoodForm({ onCreateFood }) {
             servings: servings,
             id: uuidv4()
         }
-
+        console.log(newFood);
         onCreateFood(newFood);
     }
 

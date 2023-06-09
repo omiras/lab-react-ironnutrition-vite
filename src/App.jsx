@@ -1,5 +1,4 @@
 import "./App.css";
-import FoodList from "./components/FoodList";
 
 
 function App() {
@@ -8,6 +7,7 @@ function App() {
     <div className="App">
       <h1>LAB | React IronNutrition</h1>
       <FoodList />
+
     </div>
   );
 }
