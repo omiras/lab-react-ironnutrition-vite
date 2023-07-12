@@ -1,6 +1,6 @@
 import { Input } from "antd";
 
-export default function Search({value, onSearchChange}) {
+export default function Search({ value, onSearchChange }) {
 
     return <>
         <label htmlFor="search">Search</label>

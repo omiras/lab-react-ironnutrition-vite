@@ -30,15 +30,23 @@ export default function FoodList() {
 
     const handleFilter = (e) => {
         // Cada vez que se ejecuta esta función, es que ha cambiado el valor del input search
+        const keyword = e.target.value;
+        setSearch(keyword);
 
-        // Utiliza adecuadamente el método filter para actualizar el array de foods que contengan la subcadena de texto de e.target.value
-        console.log(e.target.value);
+        // filtrar el array de foods con keywords
+        const filteredFoods = foodsJson.filter(f => new RegExp(keyword, 'i').test(f.name));
+        setFoods(filteredFoods);
+        console.log('array actualizado, ', foods);
     }
 
     return <>
+        <h2>Add New Food</h2>
         <AddFoodForm onCreateFood={handleCreateFood} />
         {/** Iterate over the foods array and render a <FoodBox /> component for each individual food item. */}
-        <Search onSearchChange={handleFilter} />
+        <h2>Filter Food</h2>
+        <Search value={search} onSearchChange={handleFilter} />
+
+        <h2>List of Foods</h2>
         <Row style={{
             justifyContent: "center"
         }}>

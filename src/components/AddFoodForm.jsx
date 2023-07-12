@@ -36,7 +36,7 @@ export default function AddFoodForm({ onCreateFood }) {
             <Input id="calories" name="calories" type="number" min={0} max={10000} value={calories} onChange={(e) => setCalories(e.target.value)} required />
             <label htmlFor="servings">Servings</label>
             <Input id="servings" name="servings" type="number" min={1} max={1000} value={servings} onChange={(e) => setServings(e.target.value)} required></Input>
-            <Button>Create</Button>
+            <Input type="submit" value={"Add Food"} />
         </form>
 
     </div>
