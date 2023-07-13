@@ -32,12 +32,10 @@ export default function FoodList() {
         // Cada vez que se ejecuta esta función, es que ha cambiado el valor del input search
         const keyword = e.target.value;
         setSearch(keyword);
-
-        // filtrar el array de foods con keywords
-        const filteredFoods = foodsJson.filter(f => new RegExp(keyword, 'i').test(f.name));
-        setFoods(filteredFoods);
-        console.log('array actualizado, ', foods);
     }
+
+    // filtrar el array de foods con keywords
+    const filteredFoods = foods.filter(f => new RegExp(search, 'i').test(f.name));
 
     return <>
         <h2>Add New Food</h2>
@@ -50,7 +48,7 @@ export default function FoodList() {
         <Row style={{
             justifyContent: "center"
         }}>
-            {foods.map(f => <FoodBox key={f.id} food={f} onDelete={handleDelete} />)}
+            {filteredFoods.map(f => <FoodBox key={f.id} food={f} onDelete={handleDelete} />)}
         </Row>
     </>
 }
